@@ -8,16 +8,16 @@ use Git::Repository;
 use Data::Dumper;
 
 my $repo;
-if($ARGV[0] && -d "/var/www/$ARGV[0]"){
+if($ARGV[0] && -d "/srv/www/$ARGV[0]"){
 	$repo = $ARGV[0];
-}elsif(getcwd() =~ /^\/var\/www\/([\w\d\.]+)$/){
+}elsif(getcwd() =~ /^\/srv\/www\/([\w\d\.]+)$/){
 	$repo = $1;
 }else{
 	$ARGV[0] = '' if not $ARGV[0];
 	die "Error: Repo '$ARGV[0]' not found!";
 }
 
-$CWD = "/var/www/$repo";
+$CWD = "/srv/www/$repo";
 
 my $git = Git::Repository->new();
 
