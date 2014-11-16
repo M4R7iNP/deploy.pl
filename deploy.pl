@@ -13,6 +13,7 @@ if($ARGV[0] && -d "/var/www/$ARGV[0]"){
 }elsif(getcwd() =~ /^\/var\/www\/([\w\d\.]+)$/){
 	$repo = $1;
 }else{
+	$ARGV[0] = '' if not $ARGV[0];
 	die "Error: Repo '$ARGV[0]' not found!";
 }
 
