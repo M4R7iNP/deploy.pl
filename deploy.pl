@@ -17,7 +17,7 @@ if($ARGV[0] && -d "/var/www/$ARGV[0]"){
 	die "Error: Repo '$ARGV[0]' not found!";
 }
 
-$CWD = "/var/www/$repo";
+$CWD = "/srv/www/$repo";
 
 my $git = Git::Repository->new();
 
