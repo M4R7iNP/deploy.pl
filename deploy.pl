@@ -38,4 +38,8 @@ if( /^(js|css)\// ~~ @diff ){
 	system('chown 1000:33 public/css -R');
 }
 
-system('naught deploy --override-env false naught.ipc') if(-e 'naught.ipc');
+if(-e 'naught.ipc'){
+	system('naught deploy --override-env false naught.ipc');
+} else {
+	system('NODE_ENV=production naught start index.js');
+}
