@@ -41,7 +41,8 @@ my $preCommitId = $git->run('rev-parse', 'HEAD');
 #$git->run('submodule', 'foreach', 'git', 'pull');
 $git->run('submodule', 'init');
 $git->run('submodule', 'update', '--init', '--recursive'); #still doesnt work
-$git->run('pull');
+$git->run('fetch');
+$git->run('checkout', 'HEAD');
 
 if($git->run('rev-parse', 'HEAD') eq $preCommitId) {
     $preCommitId = 'HEAD~';

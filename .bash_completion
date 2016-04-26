@@ -1,0 +1,9 @@
+_deploy_pl()
+{
+    local cur
+
+    COMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=($(compgen -W '`ls /srv/www`' -- $cur))
+}
+complete -F _deploy_pl deploy.pl
